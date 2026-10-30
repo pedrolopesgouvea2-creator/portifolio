@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedro Lopes Gouvea | Portfólio Pessoal</title>
+
+  <!-- Google Fonts: Fraunces e Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome para ícones (sem emojis) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Folha de estilos -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       TOPO: MENU FIXO
+       ========================================================= -->
+  <header class="topo">
+    <a href="#inicio" class="logo" title="Início">
+      <span>Pedro</span><span class="logo-destaque">.dev</span>
+    </a>
+
+    <nav aria-label="Menu principal">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre mim</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+      <button type="button" class="botao-tema" aria-label="Alternar modo claro e escuro" title="Alternar modo claro e escuro">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </nav>
+
+    <button type="button" class="botao-menu" aria-label="Abrir menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- =========================================================
+       CONTEÚDO PRINCIPAL (PÁGINA ÚNICA)
+       ========================================================= -->
+  <main>
+
+    <!-- 1. SEÇÃO INÍCIO (Hero) -->
+    <section id="inicio" class="container secao-hero">
+      <div class="hero-texto">
+        <p class="hero-saudacao">Olá, bem-vindo!</p>
+        <h1 class="hero-nome">Pedro Lopes Gouvea</h1>
+        <h2 class="hero-cargo">Desenvolvedor Front-End em formação</h2>
+        <p class="hero-bio">Carregando apresentação...</p>
+
+        <div class="hero-botoes">
+          <a href="#projetos" class="botao">Ver projetos</a>
+          <a href="#contato" class="botao botao-claro">Falar comigo</a>
+        </div>
+      </div>
+
+      <div class="hero-avatar">
+        <div class="avatar-moldura">
+          <span class="avatar-iniciais">PL</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SEÇÃO SOBRE MIM & HABILIDADES -->
+    <section id="sobre" class="container secao-sobre">
+      <h2>Sobre mim</h2>
+      <p class="sobre-descricao">
+        Estou focado em aprender na prática, desenvolvendo soluções digitais limpas e funcionais com HTML, CSS e JavaScript.
+      </p>
+
+      <h3>Habilidades em desenvolvimento</h3>
+      
+      <div class="colunas-skills">
+        <!-- Coluna 1: Front-End -->
+        <article class="cartao-skill">
+          <h4>Front-End</h4>
+          <ul id="lista-front"></ul>
+        </article>
+
+        <!-- Coluna 2: Ferramentas & Outros -->
+        <article class="cartao-skill">
+          <h4>Ferramentas & Outros</h4>
+          <ul id="lista-ferramentas"></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. SEÇÃO PROJETOS -->
+    <section id="projetos" class="container secao-projetos">
+      <h2>Projetos</h2>
+      <p class="projetos-subtitulo">Trabalhos práticos desenvolvidos para exercitar e validar os conceitos aprendidos.</p>
+
+      <!-- Lista de projetos gerada pelo script.js a partir do array de objetos -->
+      <div class="grade-projetos" id="lista-projetos"></div>
+    </section>
+
+    <!-- 4. SEÇÃO CONTATO -->
+    <section id="contato" class="container secao-contato">
+      <h2>Contato</h2>
+      <p>Tem uma oportunidade ou quer trocar uma ideia? Fique à vontade para mandar uma mensagem ou me chamar nas redes.</p>
+
+      <div class="grade-contato">
+        
+        <!-- Cartões de Redes e E-mail -->
+        <div class="contato-info">
+          
+          <!-- Bloco E-mail -->
+          <article class="cartao-contato">
+            <div class="icone-contato">
+              <i class="fa-regular fa-envelope"></i>
+            </div>
+            <div>
+              <h3>E-mail</h3>
+              <p id="texto-email">[seu-email@dominio.com]</p>
+              <button type="button" class="botao-link" id="botao-copiar">
+                <i class="fa-regular fa-copy"></i> Copiar e-mail
+              </button>
+              <span class="aviso-copia" id="aviso-copia">E-mail copiado!</span>
+            </div>
+          </article>
+
+          <!-- GitHub -->
+          <article class="cartao-contato">
+            <div class="icone-contato">
+              <i class="fa-brands fa-github"></i>
+            </div>
+            <div>
+              <h3>GitHub</h3>
+              <p>Acompanhe meus repositórios de código.</p>
+              <a href="[link do GitHub]" class="botao-link" target="_blank" rel="noopener noreferrer">Acessar GitHub</a>
+            </div>
+          </article>
+
+          <!-- LinkedIn -->
+          <article class="cartao-contato">
+            <div class="icone-contato">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+            <div>
+              <h3>LinkedIn</h3>
+              <p>Conecte-se comigo profissionalmente.</p>
+              <a href="[link do LinkedIn]" class="botao-link" target="_blank" rel="noopener noreferrer">Acessar LinkedIn</a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Formulário de Contato -->
+        <article class="formulario-bloco">
+          <h3>Envie uma mensagem</h3>
+
+          <form id="formulario-contato" novalidate>
+            <div class="grupo-campo">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+            </div>
+
+            <div class="grupo-campo">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+            </div>
+
+            <div class="grupo-campo">
+              <label for="assunto">Assunto</label>
+              <input type="text" id="assunto" name="assunto" placeholder="Qual o assunto da mensagem?" required>
+            </div>
+
+            <div class="grupo-campo">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
+            </div>
+
+            <button type="submit" class="botao">Enviar mensagem</button>
+
+            <!-- Elemento para mensagens de erro ou sucesso -->
+            <div id="aviso-formulario" class="aviso-formulario" role="alert"></div>
+          </form>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       RODAPÉ
+       ========================================================= -->
+  <footer class="rodape">
+    <h3 class="rodape-autor">Pedro Lopes Gouvea</h3>
+    <p class="rodape-data">Feito com HTML, CSS e JavaScript</p>
+  </footer>
+
+  <!-- Script principal das aulas -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,664 @@
+/* =========================================================
+   ARQUIVO: style.css
+   PORTFÓLIO PEDRO LOPES GOUVEA
+   Estilo: Limpo, Moderno e Acessível (One-Page)
+   
+   ORGANIZAÇÃO:
+   1. Variáveis e Reset Geral
+   2. Topo e Menu Fixo
+   3. Seção Início (Hero)
+   4. Seção Sobre mim e Habilidades
+   5. Seção Projetos
+   6. Seção Contato e Formulário
+   7. Rodapé
+   8. Responsividade (Menu Mobile e Celular)
+   9. BLOCO FINAL: Todos os Efeitos de Hover e Transições
+   ========================================================= */
+
+/* =========================================================
+   1. VARIÁVEIS E RESET GERAL
+   Cores oficiais: preto-azulado, azul elétrico e roxo.
+   ========================================================= */
+:root {
+  --fundo: #080b12;
+  --fundo-bloco: #121622;
+  --fundo-cartao: #181d2c;
+  --texto: #f0f4fc;
+  --texto-suave: #9ba3b8;
+  --primaria: #287bff;
+  --destaque: #8057ff;
+  --linha: rgba(40, 123, 255, 0.16);
+  --raio: 8px;
+
+  /* Status do formulário */
+  --erro: #ef4444;
+  --erro-fundo: rgba(239, 68, 68, 0.12);
+  --certo: #22c55e;
+  --certo-fundo: rgba(34, 197, 94, 0.12);
+}
+
+/* Modo Claro (Alternado pela classe .modo-claro no body) */
+body.modo-claro {
+  --fundo: #f4f6fa;
+  --fundo-bloco: #ffffff;
+  --fundo-cartao: #f8fafc;
+  --texto: #080b12;
+  --texto-suave: #4b5568;
+  --primaria: #1d68e0;
+  --destaque: #693edf;
+  --linha: rgba(8, 11, 18, 0.12);
+  --erro-fundo: #fee2e2;
+  --certo-fundo: #dcfce7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Fraunces", Georgia, serif;
+  color: var(--texto);
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: var(--texto-suave);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primaria);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem;
+}
+
+/* Botões do site */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primaria);
+  color: #ffffff;
+  border-radius: var(--raio);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.botao-claro {
+  background-color: transparent;
+  color: var(--texto);
+  border: 1px solid var(--linha);
+  background-color: var(--fundo-bloco);
+}
+
+/* =========================================================
+   2. TOPO E MENU FIXO
+   ========================================================= */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--fundo-bloco);
+  border-bottom: 1px solid var(--linha);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.logo-destaque {
+  color: var(--primaria);
+}
+
+.topo nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.topo nav a {
+  color: var(--texto);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.botao-tema {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--fundo-cartao);
+  border: 1px solid var(--linha);
+  color: var(--texto);
+  font-size: 1rem;
+}
+
+.botao-menu {
+  display: none;
+  font-size: 1.3rem;
+  color: var(--texto);
+}
+
+/* =========================================================
+   3. SEÇÃO INÍCIO (Hero)
+   ========================================================= */
+.secao-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-top: 5rem;
+}
+
+.hero-texto {
+  flex: 1;
+}
+
+.hero-saudacao {
+  color: var(--destaque);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.hero-cargo {
+  color: var(--primaria);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.hero-bio {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  color: var(--texto);
+}
+
+.hero-botoes {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-avatar {
+  flex-shrink: 0;
+}
+
+.avatar-moldura {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 4px solid var(--primaria);
+  background-color: var(--fundo-bloco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-iniciais {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+/* =========================================================
+   4. SEÇÃO SOBRE MIM E HABILIDADES
+   ========================================================= */
+.sobre-descricao {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+}
+
+.colunas-skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.cartao-skill {
+  background-color: var(--fundo-bloco);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  padding: 1.75rem;
+}
+
+.cartao-skill ul {
+  list-style: none;
+}
+
+.cartao-skill li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--linha);
+  color: var(--texto);
+  font-size: 0.95rem;
+}
+
+.cartao-skill li:last-child {
+  border-bottom: none;
+}
+
+.cartao-skill li i {
+  color: var(--primaria);
+}
+
+/* =========================================================
+   5. SEÇÃO PROJETOS
+   ========================================================= */
+.projetos-subtitulo {
+  margin-bottom: 2.5rem;
+}
+
+.grade-projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.cartao-projeto {
+  background-color: var(--fundo-bloco);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.capa-projeto {
+  height: 180px;
+  background-color: var(--fundo-cartao);
+  position: relative;
+  overflow: hidden;
+}
+
+.foto-projeto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.etiqueta-ficticio {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--fundo);
+  border: 1px solid var(--linha);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primaria);
+}
+
+.conteudo-projeto {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.conteudo-projeto h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--destaque);
+  margin-top: 0.75rem;
+}
+
+.projeto-techs {
+  font-size: 0.9rem;
+  color: var(--texto);
+  margin-bottom: 1.25rem;
+}
+
+.links-projeto {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--linha);
+}
+
+.link-acao {
+  font-size: 0.85rem;
+}
+
+.link-secundario {
+  color: var(--texto-suave);
+}
+
+/* =========================================================
+   6. SEÇÃO CONTATO E FORMULÁRIO
+   ========================================================= */
+.grade-contato {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contato-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cartao-contato {
+  background-color: var(--fundo-bloco);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.icone-contato {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--raio);
+  background-color: var(--fundo-cartao);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--primaria);
+  flex-shrink: 0;
+}
+
+.cartao-contato h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.botao-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primaria);
+  margin-top: 0.5rem;
+}
+
+.aviso-copia {
+  display: none;
+  font-size: 0.78rem;
+  color: var(--certo);
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+.aviso-copia.visivel {
+  display: inline;
+}
+
+/* Formulário */
+.formulario-bloco {
+  background-color: var(--fundo-bloco);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  padding: 2rem;
+}
+
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.grupo-campo label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+.grupo-campo input,
+.grupo-campo textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--fundo-cartao);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.grupo-campo textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.aviso-formulario {
+  display: none;
+  padding: 0.75rem 1rem;
+  border-radius: var(--raio);
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.aviso-formulario.visivel {
+  display: block;
+}
+
+.aviso-erro {
+  background-color: var(--erro-fundo);
+  color: var(--erro);
+  border: 1px solid var(--erro);
+}
+
+.aviso-sucesso {
+  background-color: var(--certo-fundo);
+  color: var(--certo);
+  border: 1px solid var(--certo);
+}
+
+/* =========================================================
+   7. RODAPÉ
+   ========================================================= */
+.rodape {
+  border-top: 1px solid var(--linha);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  background-color: var(--fundo-bloco);
+}
+
+.rodape-autor {
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+}
+
+.rodape-data {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* =========================================================
+   8. RESPONSIVIDADE (CELULAR E TELAS MENORES)
+   No máximo uma media query simples por seção.
+   ========================================================= */
+@media (max-width: 800px) {
+  /* Topo mobile */
+  .topo {
+    padding: 1rem 1.5rem;
+  }
+
+  .botao-menu {
+    display: block;
+  }
+
+  .topo nav {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--fundo-bloco);
+    border-bottom: 1px solid var(--linha);
+    flex-direction: column;
+    padding: 1.5rem;
+    display: none;
+  }
+
+  .topo nav.aberto {
+    display: flex;
+  }
+
+  /* Hero celular */
+  .secao-hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-botoes {
+    justify-content: center;
+  }
+
+  /* Skills celular */
+  .colunas-skills {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contato celular */
+  .grade-contato {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   9. BLOCO FINAL: TODOS OS EFEITOS DE HOVER E TRANSIÇÕES
+   Centralização de todos os hovers e transições do projeto.
+   ========================================================= */
+/* Transições suaves */
+body,
+.topo,
+.cartao-skill,
+.cartao-projeto,
+.cartao-contato,
+.formulario-bloco,
+.botao,
+.botao-claro,
+.botao-tema,
+.grupo-campo input,
+.grupo-campo textarea {
+  transition: all 0.25s ease;
+}
+
+/* Hovers nos links do menu */
+.topo nav a:hover {
+  color: var(--primaria);
+}
+
+/* Hover no botão tema */
+.botao-tema:hover {
+  border-color: var(--primaria);
+  color: var(--primaria);
+}
+
+/* Hover nos botões */
+.botao:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+}
+
+.botao-claro:hover {
+  border-color: var(--primaria);
+  color: var(--primaria);
+}
+
+/* Hover nos cartões de projetos */
+.cartao-projeto:hover {
+  border-color: var(--primaria);
+  transform: translateY(-3px);
+}
+
+/* Hover nos cartões de contato */
+.cartao-contato:hover {
+  border-color: var(--primaria);
+  transform: translateY(-2px);
+}
+
+/* Hover nos links */
+.link-acao:hover,
+.botao-link:hover {
+  color: var(--destaque);
+}
+
+/* Foco nos campos do formulário */
+.grupo-campo input:focus,
+.grupo-campo textarea:focus {
+  border-color: var(--primaria);
+}
